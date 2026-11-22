@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mimiac (mimi.ac) — Learn a Language Through Drama, Not Boring Textbooks</title>
+  <meta name="description" content="Mimiac (mimi.ac) is a pocket voice-acting studio for language shadowing. Ditch polite robot phrases—shadow 5-line soap-opera Drama Packs, get AI delivery coaching, and master real accents." />
+  <meta name="keywords" content="Mimiac, mimi.ac, language shadowing app, accent coaching app, voice acting language learning, AI pronunciation coach, drama packs language learning" />
+  <link rel="canonical" href="https://mimi.ac/" />
+
+  <!-- Open Graph / Social Previews -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mimi.ac/" />
+  <meta property="og:title" content="Mimiac (mimi.ac) — Speak With Attitude, Not Like a Textbook" />
+  <meta property="og:description" content="Shadow short, dramatic soap-opera episodes instead of boring flashcards. Join the Mimiac Founding Beta on Android & Web." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mimiac (mimi.ac) — Pocket Voice-Acting for Language Fluency" />
+  <meta name="twitter:description" content="Nobody wants to repeat 'The boy eats an apple.' Shadow real human drama with Mimiac." />
+
+  <!-- Google Fonts: Fredoka (Playful Rounded) + Plus Jakarta Sans + JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- JSON-LD Structured Data: Feeds Google's Knowledge Graph Directly -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://mimi.ac/#organization",
+        "name": "Mimiac",
+        "alternateName": ["mimi.ac", "Mimiac App"],
+        "url": "https://mimi.ac",
+        "email": "hello@mimi.ac",
+        "description": "Mimiac is a language shadowing and accent coaching app built around dramatic micro-episodes and expressive voice acting."
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://mimi.ac/#app",
+        "name": "Mimiac",
+        "alternateName": "mimi.ac",
+        "operatingSystem": "Android, Web",
+        "applicationCategory": "EducationalApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/PreOrder"
+        },
+        "description": "A pocket voice-acting studio for language shadowing. Practice Spanish, French, Japanese, Italian, and English accents by shadowing expressive 5-line drama episodes with AI delivery coaching and instant Native vs. Me comparison.",
+        "publisher": { "@id": "https://mimi.ac/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Mimiac (mimi.ac)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mimiac is a language shadowing and accent coaching app that replaces dry textbook flashcards with short, emotional 5-line soap-opera episodes called Drama Packs. Learners shadow expressive native audio, get AI feedback on rhythm, clarity, and delivery, and stitch their takes into shareable mini audio dramas via mimi.ac links."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is Mimiac different from Duolingo or traditional language apps?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Traditional apps teach reading and vocabulary through silent tapping and monotone sentences. Mimiac focuses 100% on speaking confidence, prosody, and real-world attitude—training your ear and voice through high-emotion scenes like café confrontations, gossip, and movie comebacks."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a Mimiac?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A Mimiac is both the app's name and its minimalist character—a round, expressive creature with two curious off-center eyes that lives inside the dot of the mimi.ac logo and reacts emotionally to every line you voice-act."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "When does Mimiac launch on Google Play?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mimiac is currently inviting Founding Mimiacs to join the closed Android beta via the waitlist at mimi.ac, covering Spanish, French, Japanese, Italian, and English Drama Packs."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #FAF9F6;
+      --surface: #FFFFFF;
+      --ink: #14141F;
+      --muted: #5C5C6E;
+      --border: #E5E3DC;
+      --indigo: #5B4BFF;
+      --indigo-dark: #4335D6;
+      --coral: #FF5A5F;
+      --coral-dark: #D93D42;
+      --mint: #10B981;
+      --amber: #F59E0B;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .display { font-family: 'Fredoka', 'Plus Jakarta Sans', sans-serif; }
+
+    /* Animated mimi[Mimiac]ac Wordmark */
+    .logo-lockup {
+      display: inline-flex;
+      align-items: baseline;
+      text-decoration: none;
+      color: var(--ink);
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 700;
+      font-size: 2rem;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .mimiac-dot {
+      display: inline-block;
+      width: 0.44em;
+      height: 0.44em;
+      margin: 0 0.05em;
+      transform: translateY(0.03em);
+    }
+    .mimiac-eyes {
+      transform-origin: center;
+      animation: blink 4.5s infinite;
+    }
+    @keyframes blink {
+      0%, 92%, 100% { transform: scaleY(1); }
+      95% { transform: scaleY(0.1); }
+    }
+
+    /* Tactile Duolingo-style Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.98rem;
+      padding: 14px 24px;
+      border-radius: 14px;
+      border: 2px solid var(--ink);
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .btn-coral {
+      background: var(--coral);
+      color: #FFF;
+      box-shadow: 0 4px 0 var(--ink);
+    }
+    .btn-coral:hover { transform: translateY(-1px); box-shadow: 0 5px 0 var(--ink); }
+    .btn-coral:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--ink); }
+
+    .btn-indigo {
+      background: var(--indigo);
+      color: #FFF;
+      box-shadow: 0 4px 0 var(--ink);
+    }
+    .btn-indigo:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--ink); }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(250, 249, 246, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--border);
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 74px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a.text-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .nav-links a.text-link:hover { color: var(--ink); }
+
+    /* Hero */
+    .hero { padding: 64px 0 80px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-block;
+      background: #EDE9FE;
+      color: var(--indigo);
+      border: 1.5px solid var(--indigo);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--muted);
+      margin-bottom: 28px;
+      max-width: 540px;
+    }
+
+    /* Waitlist Form */
+    .waitlist-form {
+      display: flex;
+      gap: 10px;
+      max-width: 500px;
+      flex-wrap: wrap;
+    }
+    .waitlist-form input[type="email"] {
+      flex: 1;
+      min-width: 220px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: 2px solid var(--ink);
+      font-size: 1rem;
+      font-family: inherit;
+      background: #FFF;
+      outline: none;
+    }
+    .waitlist-form input[type="email"]:focus { border-color: var(--indigo); }
+    .form-note {
+      font-size: 0.84rem;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+    .success-msg {
+      display: none;
+      margin-top: 12px;
+      padding: 12px 16px;
+      background: #D1FAE5;
+      border: 2px solid var(--mint);
+      border-radius: 12px;
+      font-weight: 600;
+      color: #065F46;
+    }
+
+    /* Interactive Stage Preview Card */
+    .stage-card {
+      background: var(--surface);
+      border: 2.5px solid var(--ink);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 8px 8px 0 var(--ink);
+    }
+    .stage-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    .pack-pill {
+      background: #F3F2EC;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1.5px solid var(--ink);
+    }
+    .vibe-tabs { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
+    .vibe-btn {
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1.5px solid var(--border);
+      background: #FAF9F6;
+      cursor: pointer;
+    }
+    .vibe-btn.active {
+      background: var(--ink);
+      color: #FFF;
+      border-color: var(--ink);
+    }
+    .phrase-box { margin-bottom: 20px; }
+    .phrase-native {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.55rem;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .phrase-phonetic { font-size: 0.9rem; color: var(--indigo); font-weight: 700; margin-bottom: 4px; }
+    .phrase-english { font-size: 0.9rem; color: var(--muted); }
+
+    .mimiac-stage-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: #FAF9F6;
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 18px;
+    }
+    .waveform {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      height: 36px;
+    }
+    .bar {
+      flex: 1;
+      background: var(--indigo);
+      border-radius: 4px;
+      transition: height 0.2s ease, background 0.2s ease;
+    }
+    .stage-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* Sections */
+    section { padding: 72px 0; border-top: 2px solid var(--border); }
+    h2 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .lead { font-size: 1.12rem; color: var(--muted); max-width: 720px; margin-bottom: 36px; }
+
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .card {
+      background: var(--surface);
+      border: 2px solid var(--ink);
+      border-radius: 20px;
+      padding: 26px;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+    .card-num {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 0.85rem;
+      background: var(--indigo);
+      color: #FFF;
+      padding: 4px 10px;
+      border-radius: 8px;
+      margin-bottom: 14px;
+    }
+    .card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+    .card p { color: var(--muted); font-size: 0.96rem; }
+
+    /* Manifesto Article (#1 Embedded Semantically for Google) */
+    .manifesto-box {
+      background: var(--surface);
+      border: 2.5px solid var(--ink);
+      border-radius: 24px;
+      padding: 42px;
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+    .manifesto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 24px;
+    }
+    .manifesto-block h3 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+    .manifesto-block p, .manifesto-block li {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+    .manifesto-block ul { padding-left: 18px; margin-top: 6px; }
+    .manifesto-block li { margin-bottom: 6px; }
+
+    /* FAQ */
+    .faq-list { max-width: 780px; display: flex; flex-direction: column; gap: 14px; }
+    details {
+      background: var(--surface);
+      border: 2px solid var(--ink);
+      border-radius: 16px;
+      padding: 18px 22px;
+    }
+    summary {
+      font-weight: 700;
+      font-size: 1.05rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    summary::after { content: "+"; font-family: 'JetBrains Mono', monospace; font-size: 1.25rem; }
+    details[open] summary::after { content: "−"; }
+    details p { margin-top: 12px; color: var(--muted); font-size: 0.96rem; }
+
+    /* Bottom CTA */
+    .cta-banner {
+      background: #14141F;
+      color: #FFF;
+      border-radius: 26px;
+      padding: 52px 36px;
+      text-align: center;
+    }
+    .cta-banner h2 { color: #FFF; }
+    .cta-banner p { color: #B8B8C7; max-width: 560px; margin: 0 auto 28px; }
+    .cta-banner .waitlist-form { margin: 0 auto; justify-content: center; }
+
+    footer {
+      border-top: 2px solid var(--border);
+      padding: 36px 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .footer-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    footer a { color: var(--ink); font-weight: 600; text-decoration: none; margin-left: 18px; }
+
+    @media (max-width: 860px) {
+      .hero-grid, .cards-3, .manifesto-grid { grid-template-columns: 1fr; }
+      .nav-links a.text-link { display: none; }
+      .manifesto-box { padding: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#top" class="logo-lockup" aria-label="Mimiac (mimi.ac)">
+          <span>mimi</span>
+          <svg class="mimiac-dot" viewBox="0 0 100 100" aria-hidden="true">
+            <circle cx="50" cy="50" r="48" fill="#14141F" />
+            <g class="mimiac-eyes">
+              <circle cx="56" cy="64" r="9.5" fill="#FFFFFF" />
+              <circle cx="77" cy="64" r="9.5" fill="#FFFFFF" />
+            </g>
+          </svg>
+          <span>ac</span>
+        </a>
+        <div class="nav-links">
+          <a href="#how-it-works" class="text-link">How It Works</a>
+          <a href="#manifesto" class="text-link">Manifesto</a>
+          <a href="#faq" class="text-link">FAQ</a>
+          <a href="#waitlist" class="btn btn-coral" style="padding: 10px 18px; font-size: 0.9rem;">Join Beta</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO (#2) -->
+    <section class="hero" style="border-top: none;">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">🎙️ Pocket Voice-Acting for Language Shadowing</span>
+          <h1>Stop repeating polite robot sentences. Learn a language with attitude.</h1>
+          <p class="hero-sub">
+            Millions of people hold 300-day streaks and still freeze in real conversations.
+            <strong>Mimiac</strong> (<code>mimi.ac</code>) fixes how you <em>sound</em>—by letting you shadow short, juicy soap-opera scenes instead of boring flashcards.
+          </p>
+
+          <form class="waitlist-form" id="waitlist" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <input type="email" name="email" placeholder="Enter your email for beta access..." required />
+            <button type="submit" class="btn btn-coral">Join Founding Beta →</button>
+          </form>
+          <p class="form-note">Launching first on Android · Free early access for our first 100 Founding Mimiacs.</p>
+          <div class="success-msg" id="hero-success">🎉 You’re on the Mimiac Founding Beta list! We’ll reach out from hello@mimi.ac soon.</div>
+        </div>
+
+        <!-- INTERACTIVE DRAMA PREVIEW CARD -->
+        <aside class="stage-card" aria-label="Mimiac App Interactive Preview">
+          <div class="stage-top">
+            <span class="pack-pill">🇪🇸 Ep 1: Café Confrontation</span>
+            <span class="mono" style="color: var(--indigo);">0.75x / 1.0x</span>
+          </div>
+
+          <div class="vibe-tabs">
+            <button type="button" class="vibe-btn active" onclick="setScene('shocked', this)">😳 Shocked</button>
+            <button type="button" class="vibe-btn" onclick="setScene('sarcastic', this)">🤨 Sarcastic</button>
+            <button type="button" class="vibe-btn" onclick="setScene('heated', this)">🔥 Heated</button>
+          </div>
+
+          <div class="phrase-box">
+            <div class="phrase-native" id="scene-native">"Espera... ¿salió con los dos?"</div>
+            <div class="phrase-phonetic mono" id="scene-phonetic">ehs-PEH-rah... sah-LYOH kohn lohs dohs?</div>
+            <div class="phrase-english" id="scene-english">"Wait... she went out with BOTH of them?"</div>
+          </div>
+
+          <div class="mimiac-stage-row">
+            <svg width="52" height="52" viewBox="0 0 100 100" id="stage-mimiac">
+              <circle id="mimiac-body" cx="50" cy="50" r="46" fill="#5B4BFF" />
+              <g class="mimiac-eyes">
+                <circle id="eye-l" cx="55" cy="60" r="10" fill="#FFFFFF" />
+                <circle id="eye-r" cx="76" cy="60" r="10" fill="#FFFFFF" />
+              </g>
+            </svg>
+            <div class="waveform" id="waveform">
+              <div class="bar" style="height: 40%;"></div>
+              <div class="bar" style="height: 85%;"></div>
+              <div class="bar" style="height: 55%;"></div>
+              <div class="bar" style="height: 95%;"></div>
+              <div class="bar" style="height: 70%;"></div>
+              <div class="bar" style="height: 45%;"></div>
+              <div class="bar" style="height: 80%;"></div>
+              <div class="bar" style="height: 35%;"></div>
+            </div>
+          </div>
+
+          <div class="stage-footer">
+            <span class="mono" id="scene-tip">Coach: "Spike your pitch at the end!"</span>
+            <span class="mono" style="color: var(--mint); font-weight: 700;">mimi.ac/c/8x2k</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS (#2) -->
+    <section id="how-it-works">
+      <div class="container">
+        <h2>30 seconds of drama beats 30 minutes of drills.</h2>
+        <p class="lead">
+          Nobody wants to say <em>"The boy eats an apple."</em> People secretly learn languages from telenovelas, K-dramas, and messy conversations—because emotion forces the rhythm and pitch where real accents live.
+        </p>
+
+        <div class="cards-3">
+          <article class="card">
+            <span class="card-num">01 / DRAMA PACKS</span>
+            <h3>5-Line Soap-Opera Episodes</h3>
+            <p>Shadow connected mini-scenes packed with real slang and emotional cues—like <em>The Café Confrontation</em> or <em>Caught in a Lie</em>—never isolated textbook lines.</p>
+          </article>
+          <article class="card">
+            <span class="card-num">02 / SHADOW & COACH</span>
+            <h3>Scored on Clarity & Attitude</h3>
+            <p>Slow native voice acting down to <code>0.75x</code>, trace the visual pitch ribbon, and get instant AI coaching on rhythm, pronunciation, and vocal delivery.</p>
+          </article>
+          <article class="card">
+            <span class="card-num">03 / SCENE-STITCH</span>
+            <h3>Share Your Mini Audio Drama</h3>
+            <p>Compare <strong>Native vs. Me</strong> in one tap. Finish the episode and Mimiac stitches your takes with your co-star into a 20-second scene to share at <code>mimi.ac</code>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE MANIFESTO (#1 FULL NORTH STAR EMBEDDED FOR DEEP GOOGLE INDEXING) -->
+    <section id="manifesto">
+      <div class="container">
+        <article class="manifesto-box">
+          <span class="eyebrow">📜 The Mimiac North Star Manifesto</span>
+          <h2>Why Mimiac exists: Category of One</h2>
+          <p class="lead" style="margin-bottom: 12px;">
+            <strong>Mimiac is not a digital textbook. It is a pocket voice-acting studio for language shadowing.</strong>
+          </p>
+
+          <div class="manifesto-grid">
+            <div class="manifesto-block">
+              <h3>1. The Broken Status Quo</h3>
+              <p>Modern language apps train your thumb to tap silent multiple-choice boxes. That teaches passive reading, leaving learners deaf to natural speed and afraid to speak out loud.</p>
+            </div>
+            <div class="manifesto-block">
+              <h3>2. Why Drama Unlocks Fluency</h3>
+              <p>Accents live in prosody—sudden pitch spikes, sarcastic drops, and bursts of speed. Acting out high-stakes dialogue removes self-consciousness and trains your mouth twice as fast.</p>
+            </div>
+            <div class="manifesto-block">
+              <h3>3. Meet Your Mimiac</h3>
+              <p>A <em>Mimiac</em> is a minimalist reactive creature living inside the dot of <code>mimi.ac</code>. It doesn’t lecture you with grammar rules—it mirrors your mood, leaning in when you listen and pulsing with your mic.</p>
+            </div>
+            <div class="manifesto-block">
+              <h3>4. What We Refuse to Build</h3>
+              <ul>
+                <li>No dry conjugation tables or silent tap-the-word drills.</li>
+                <li>No flat, monotone robot voices draining emotion out of speech.</li>
+                <li>No bloated menus—just Stage, Drama Packs, and your Mimiac.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ (SUPERCHARGES GOOGLE LONG-TAIL SEARCH) -->
+    <section id="faq">
+      <div class="container">
+        <h2>Questions about Mimiac (<code>mimi.ac</code>)</h2>
+        <div class="faq-list">
+          <details open>
+            <summary>What is Mimiac and what does mimi.ac mean?</summary>
+            <p><strong>Mimiac</strong> (from <em>mimic + maniac</em>) is a playful language shadowing and accent coaching app. Our domain <strong>mimi.ac</strong> spells out our name directly—just like <code>youtu.be</code> spells YouTube—and powers short, shareable challenge links for your shadowing clips.</p>
+          </details>
+          <details>
+            <summary>How is Mimiac different from Duolingo or ELSA Speak?</summary>
+            <p>Duolingo focuses on reading and vocabulary streaks; traditional pronunciation apps rely on dry drills. Mimiac is built entirely around <strong>emotional language shadowing</strong>—short soap-opera scenes with expressive voice acting and AI feedback on both pronunciation and dramatic delivery.</p>
+          </details>
+          <details>
+            <summary>Which languages will Mimiac support at launch?</summary>
+            <p>Our Founding Beta launches with Drama Packs in <strong>Spanish, French, Japanese, Italian, and English</strong>, with new episodic packs rolling out continuously based on beta tester votes.</p>
+          </details>
+          <details>
+            <summary>How do I join the Android beta on Google Play?</summary>
+            <p>Drop your email in the waitlist above. We’re inviting our first wave of Founding Mimics to test Mimiac on Android via Google Play closed testing and help shape the earliest episodes.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section style="border-top: none; padding-top: 20px;">
+      <div class="container">
+        <div class="cta-banner">
+          <h2>Ready to talk back?</h2>
+          <p>Claim your spot in the Mimiac Founding Beta and be the first to shadow our Spanish, French, Japanese, Italian, and English Drama Packs.</p>
+          <form class="waitlist-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <input type="email" name="email" placeholder="you@example.com" required />
+            <button type="submit" class="btn btn-coral">Get Early Access →</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-flex">
+      <span><strong>Mimiac</strong> (<code>mimi.ac</code>) — Pocket voice-acting for real-world fluency.</span>
+      <div>
+        <a href="mailto:hello@mimi.ac">hello@mimi.ac</a>
+        <a href="#manifesto">Manifesto</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const scenes = {
+      shocked: {
+        native: '"Espera... ¿salió con los dos?"',
+        phonetic: 'ehs-PEH-rah... sah-LYOH kohn lohs dohs?',
+        english: '"Wait... she went out with BOTH of them?"',
+        tip: 'Coach: "Spike your pitch at the end!"',
+        color: '#5B4BFF',
+        bars: ['40%','85%','55%','95%','70%','45%','80%','35%']
+      },
+      sarcastic: {
+        native: '"Qué casualidad, ¿no? Qué sorpresa."',
+        phonetic: 'keh kah-swah-lee-DAHD, noh? keh sohr-PREH-sah.',
+        english: '"What a coincidence, right? What a surprise."',
+        tip: 'Coach: "Drop your tone low and slow on \'no?\'!"',
+        color: '#14141F',
+        bars: ['60%','35%','50%','30%','65%','25%','45%','20%']
+      },
+      heated: {
+        native: '"¡No es lo que parece, déjame explicarte!"',
+        phonetic: 'noh ehs loh keh pah-REH-seh, DEH-hah-meh ehks-plee-KAHR-teh!',
+        english: '"It’s not what it looks like, let me explain!"',
+        tip: 'Coach: "Speed up! Hit \'explicarte\' with urgency!"',
+        color: '#FF5A5F',
+        bars: ['80%','95%','75%','100%','90%','85%','95%','65%']
+      }
+    };
+
+    function setScene(key, btn) {
+      document.querySelectorAll('.vibe-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const s = scenes[key];
+      document.getElementById('scene-native').textContent = s.native;
+      document.getElementById('scene-phonetic').textContent = s.phonetic;
+      document.getElementById('scene-english').textContent = s.english;
+      document.getElementById('scene-tip').textContent = s.tip;
+      document.getElementById('mimiac-body').setAttribute('fill', s.color);
+      const bars = document.querySelectorAll('#waveform .bar');
+      bars.forEach((bar, i) => {
+        bar.style.height = s.bars[i];
+        bar.style.background = s.color;
+      });
+    }
+
+    // Friendly local confirmation if Formspree isn't wired yet
+    document.querySelectorAll('.waitlist-form').forEach(form => {
+      form.addEventListener('submit', function(e) {
+        if (this.action.includes('YOUR_FORM_ID')) {
+          e.preventDefault();
+          const msg = document.getElementById('hero-success');
+          if (msg) msg.style.display = 'block';
+          this.reset();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

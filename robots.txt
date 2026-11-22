@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mimi.ac/sitemap.xml
